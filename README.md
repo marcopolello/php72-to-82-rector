@@ -1,59 +1,65 @@
 # php72-to-82-rector
 
-This project is designed to facilitate the transition of PHP code from version 7.2 to 8.2 using Rector, a powerful tool for automated code refactoring.
+Questo progetto è pensato per facilitare la transizione del codice PHP dalla versione 7.2 alla 8.2 usando Rector, uno strumento potente per il refactoring automatico del codice.
 
-## Project Structure
+## Struttura del progetto
 
-- **src/**: Contains the legacy code that may require refactoring.
-  - **LegacyClass.php**: Defines a class with a method that demonstrates legacy code.
-  - **functions.php**: Contains a standalone function that serves as an example of procedural code.
-  - **traits/**: Contains traits used in the legacy code.
-    - **LegacyTrait.php**: Defines a trait with a method that illustrates trait usage.
+- **src/**: Contiene il codice legacy che potrebbe richiedere refactoring.
+  - **LegacyClass.php**: Definisce una classe con un metodo che dimostra codice legacy.
+  - **functions.php**: Contiene una funzione standalone che funge da esempio di codice procedurale.
+  - **traits/**: Contiene trait usati nel codice legacy.
+    - **LegacyTrait.php**: Definisce un trait con un metodo che illustra l'uso dei trait.
 
-- **tests/**: Contains tests for the legacy code and Rector fixtures.
-  - **LegacyClassTest.php**: PHPUnit test case for `LegacyClass`.
-  - **rector/**: Contains fixtures for Rector analysis.
-    - **fixtures/**: Holds legacy PHP code and expected output.
-      - **legacy.php.inc**: Input for Rector.
-      - **expected.php.inc**: Expected output after refactoring.
+- **tests/**: Contiene i test per il codice legacy e i fixture per Rector.
+  - **LegacyClassTest.php**: Caso di test PHPUnit per `LegacyClass`.
+  - **rector/**: Contiene fixture per l'analisi di Rector.
+    - **fixtures/**: Contiene il codice PHP legacy e l'output atteso.
+      - **legacy.php.inc**: Input per Rector.
+      - **expected.php.inc**: Output atteso dopo il refactoring.
 
-- **rector.php**: Configuration file for Rector, specifying rules for migration.
+- **rector.php**: File di configurazione per Rector, che specifica le regole di migrazione.
 
-- **composer.json**: Lists dependencies required for the project, including PHPUnit and Rector.
+- **composer.json**: Elenca le dipendenze richieste dal progetto, inclusi PHPUnit e Rector.
 
-- **phpunit.xml.dist**: Configuration file for PHPUnit, setting up the testing environment.
+- **phpunit.xml.dist**: File di configurazione per PHPUnit, per impostare l'ambiente di test.
 
-- **.editorconfig**: Defines coding styles and formatting rules.
+- **.editorconfig**: Definisce stili di codifica e regole di formattazione.
 
-- **.gitattributes**: Specifies attributes for Git.
+- **.gitattributes**: Specifica gli attributi per Git.
 
-## Setup Instructions
+## Istruzioni di setup
 
-1. Clone the repository:
+1. Clonare il repository:
    ```
    git clone <repository-url>
    cd php72-to-82-rector
    ```
 
-2. Install dependencies using Composer:
+2. Installare le dipendenze con Composer:
    ```
    composer install
    ```
 
-3. Run Rector to analyze and refactor the legacy code:
+3. Eseguire Rector per analizzare e refattorizzare il codice legacy:
    ```
    vendor/bin/rector process src
    ```
 
-4. Run the tests to ensure everything works as expected:
+   dry run:
+   ```
+   ./vendor/bin/rector process src --config rector.php --dry-run
+   ```
+   per vedere le modifiche proposte senza applicarle.
+
+4. Eseguire i test per verificare che tutto funzioni come previsto:
    ```
    vendor/bin/phpunit
    ```
 
-## Usage Guidelines
+## Linee guida d'uso
 
-- Use the provided tests to verify that the legacy code behaves as expected after refactoring.
-- Modify the Rector configuration in `rector.php` to customize the migration process according to your project's needs.
-- Review the output in `expected.php.inc` to understand the changes made by Rector.
+- Usa i test forniti per verificare che il codice legacy si comporti come previsto dopo il refactoring.
+- Modifica la configurazione di Rector in `rector.php` per personalizzare il processo di migrazione in base alle esigenze del progetto.
+- Controlla l'output in `expected.php.inc` per capire le modifiche apportate da Rector.
 
-This project serves as a practical example of upgrading PHP code and can be extended to include additional legacy code and tests as needed.
+Questo progetto serve come esempio pratico per l'aggiornamento del codice PHP e può essere esteso per includere altro codice legacy e test secondo necessità.
