@@ -42,7 +42,7 @@ This project is designed to facilitate the transition of PHP code from version 7
 
 3. Run Rector to analyze and refactor the legacy code:
    ```
-   vendor/bin/rector process src --set php82
+   vendor/bin/rector process src
    ```
 
 4. Run the tests to ensure everything works as expected:
