@@ -5,18 +5,12 @@ namespace App;
 class LegacyClass
 {
     /**
-     * @var array
-     */
-    public $items;
-
-    /**
      * Costruttore senza typed properties (PHP 7.2 style).
      *
      * @param array $items
      */
-    public function __construct(array $items = [])
+    public function __construct(public array $items = [])
     {
-        $this->items = $items;
     }
 
     /**

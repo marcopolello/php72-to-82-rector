@@ -5,7 +5,6 @@ trait LegacyTrait
     /**
      * Esegue operazioni su un array usando each() (pattern compatibile con PHP 7.2).
      *
-     * @param array $items
      * @return string
      */
     public function traitMethod(array $items)
